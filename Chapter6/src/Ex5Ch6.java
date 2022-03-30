@@ -19,19 +19,19 @@ public class Ex5Ch6 {
 		// TODO Auto-generated method stub
 		Scanner Quarters = new Scanner(System.in);
 		
-		System.out.println("Please input the amount of Quarters: ");
+		System.out.println("Please input the amount of Quarters: "); 
 
 		int Q1 = Quarters.nextInt();
 		
-		double Q = Q1 * 0.25;
-		
-		Scanner dimes = new Scanner(System.in);
+		double Q = Q1 * 0.25; //defines number of quarters and value
+		 
+		Scanner dimes = new Scanner(System.in); 
 		
 		System.out.println("Please input the amount of Dimes: ");
 
 		int D1 = dimes.nextInt();
 		
-		double D = D1 * 0.1;
+		double D = D1 * 0.1; //defines number of dimes and value
 		
 		Scanner nickels = new Scanner(System.in);
 		
@@ -39,7 +39,7 @@ public class Ex5Ch6 {
 
 		int N1 = nickels.nextInt();
 		
-		double N = N1 * 0.05;
+		double N = N1 * 0.05; //defines number of nickels and value
 		
 		
 		Scanner pennies = new Scanner(System.in);
@@ -48,12 +48,12 @@ public class Ex5Ch6 {
 
 		int P1 = pennies.nextInt();
 		
-		double P = P1 * 0.01;
+		double P = P1 * 0.01; //defines number of pennies and value
 		
 		
 		double total = P + N + D + Q;
 		
-		String output = DecimalFormat.getCurrencyInstance().format(total);
+		String output = DecimalFormat.getCurrencyInstance().format(total); //this basically puts & in front of the number
 		
 		System.out.println(output);
 		
