@@ -20,6 +20,6 @@ a) int
 	f) char
 
 a) Primitive is supported directly by the language, while abstract is created by users.
-	b) class is the template where objects are created, while an object is an instance of the class.
+	b) class is the template where objects are created, while an object is an instance of the class..
 
 */
