@@ -1,6 +1,6 @@
 /*
 
-Program:.java          Last Date of this Revision: April 4, 2022
+Program:.java          Last Date of this Revision: April 7, 2022
  
 Purpose: modify the circle class to override the equals() and toString() methods, as shown in the previous section.
 
@@ -59,11 +59,19 @@ public class circlep4 {
 	public boolean equals(Object c) {//accessor method
 		circlep4 testObj = (circlep4)c;
 		
-		if(tesObj.getRadius() == radius){//determines if object is equal to another circle object 	
+		if(testObj.getRadius() == radius){//determines if object is equal to another circle object 	
 			return(true); //true if objects have same radius
 		}else {	
 			return(false); //otherwise it is false
 		}	
+	}
+	public String toString() {
+		
+			String circleString;
+			
+			circleString = "Circle has radius " + radius;
+			return(circleString);
+				
 	}
 	
 	public static void displayAreaFormula() {
@@ -74,15 +82,20 @@ public class circlep4 {
 	
 	
 	public static void main(String[] args) {
-
-
-		circlep4 spot = new circlep4();
+		circlep4 spot1 = new circlep4(3);
+		circlep4 spot2 = new circlep4(4);
 		
-		spot.setRadius(3);
-		circlep4.displayAreaFormula();
-		System.out.println("Circle Radius: " + spot.getRadius());
-		System.out.println("Circle circumference: " + spot.circumference());
-		
+		if(spot1.equals(spot2)) {
+			
+			System.out.println("Objects are equal");
+			
+		}else {
+			
+			System.out.println("Objects are not equal");
+			
+		}
+		System.out.println(spot1);
+		System.out.println(spot2);
 		
 	}
 	
@@ -92,9 +105,10 @@ public class circlep4 {
  
  
 
-The formula for the area of a circle is A = PI * r * r
-Circle Radius: 3.0
-Circle circumference: 18.84
+Objects are not equal
+Circle has radius 3.0
+Circle has radius 4.0
+
 
 
 
