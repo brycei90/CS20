@@ -1,3 +1,15 @@
+/*
+
+Program:.java          Last Date of this Revision: April 12, 2022
+ 
+Purpose: 
+
+Author: Bryce Ilcan
+School: CHHS
+Course: Computer Programming 20
+ 
+ 
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -7,7 +19,7 @@ class gui {
         //Creating the Frame
         JFrame frame = new JFrame("My Savings!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(700, 700);
+        frame.setSize(700, 400);
        
         //Creating the panel at bottom and adding components
 
@@ -32,7 +44,7 @@ class gui {
         
     	JPanel panel2 = new JPanel();
 
-    	GridLayout layout2 = new GridLayout(30, 30);
+    	GridLayout layout2 = new GridLayout(20, 20);
     	
         JLabel label = new JLabel("Enter amount you want to take out: ");
         JTextField tf = new JTextField(15);
@@ -40,10 +52,12 @@ class gui {
     	JLabel total = new JLabel("TOTTALLLLLL");
 
     	panel2.setLayout(layout2);
-    	
-    	panel2.add(tf);
     	panel2.add(label);
+    	panel2.add(tf);
     	
+    	//int removalA = Integer.parseInt(tf.getText());
+    	
+    	// make it so they can not remove over the amount inputed
     	
 
     	
