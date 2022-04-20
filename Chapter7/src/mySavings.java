@@ -17,14 +17,24 @@ import java.awt.event.ActionListener;
 class gui implements ActionListener{
 
         //Creating the panel and adding components
-	static JFrame frame = new JFrame("My Savings!");
-	 JButton P = new JButton("add a penny");
+
+	 public static JFrame frame = new JFrame("My Savings!");
+     public static JPanel panel = new JPanel();
+     public static JPanel panel2 = new JPanel(); 
+
+     JButton P = new JButton("add a penny");
      JButton N = new JButton("add a nickel");
      JButton D = new JButton("add a dime");
      JButton Q = new JButton("add a quarter");
-     static JPanel panel = new JPanel();
-     static JPanel panel2 = new JPanel();
-       
+     JButton sub = new JButton("Submit");
+     
+     JLabel label = new JLabel("Enter amount you want to take out: ");
+     JTextField tf = new JTextField(15);
+
+     private double totalM = 0, removalA = 0;
+     
+ 	 JLabel screen = new JLabel("Your total is: " + totalM);
+     
      public gui()  {
         
         GridLayout layout = new GridLayout(2,2);
@@ -41,70 +51,87 @@ class gui implements ActionListener{
     	panel.add(D);
     	panel.add(Q);
         
-        
-    	
-
-    	GridLayout layout2 = new GridLayout(20, 20);
-    	
-        JLabel label = new JLabel("Enter amount you want to take out: ");
-        JTextField tf = new JTextField(15);
-    	JLabel screen = new JLabel("asdf ");
-    	JLabel total = new JLabel("TOTTALLLLLL");
        
-    	panel2.setLayout(layout2);
+    	
+        
     	panel2.add(label);
     	panel2.add(tf);
+    	panel2.add(sub);
+    	panel2.add(screen);
+
+
     	
-    	//int removalA = Integer.parseInt(tf.getText());
     	
     	// make it so they can not remove over the amount inputed
 
        }
-       
+  
     	@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			
     		if(e.getSource() == P) {
     			
-    			System.out.println("BOOM BITCH");
+    		
+    			totalM += 0.01;
+    			
+    		
     			
     		}
     		else if(e.getSource() == N) {
     			
+    		
+    			totalM += 0.05;
     			
+    	
     			
     		}
     		else if(e.getSource() == D) {
+    			
+    			
+    			totalM += 0.10;
     			
     			
     			
     		}
     		else if(e.getSource() == Q) {
     			
+    		
+    			totalM += 0.25;
+    			
     			
     			
     		}
+    		else if(e.getSource() == sub) {
+    			
+    			removalA = Double.parseDouble(tf.getText());
+    				
+    			totalM -= removalA;
+    			
+    		}
     		
-			
-			
-		}
+    		//make it so they can see how many individual coins have been inputted.
 
-    	public static void main(String[] args){
+			screen.setText("your total is: " + totalM);
+
+		}
+    	
+     	public static void main(String[] args){
 
             //Creating the Frame
-    		
-    		
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+          
+     		gui g = new gui();
+     		
+     		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(700, 400);
             frame.getContentPane().add(BorderLayout.EAST, panel);
             frame.getContentPane().add(BorderLayout.CENTER, panel2);
             frame.setVisible(true);
-
             
             
             
     	}
+
 
        
         
