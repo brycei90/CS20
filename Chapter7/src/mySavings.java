@@ -2,7 +2,7 @@
 
 Program:.java          Last Date of this Revision: April 12, 2022
  
-Purpose: 
+Purpose: create a my savings application that displays a menu of choices for entering pennies, nickels, dimes, and quarters into a piggay bank and then prompts the user to make a selection.
 
 Author: Bryce Ilcan
 School: CHHS
@@ -27,10 +27,13 @@ class gui implements ActionListener{
      JButton D = new JButton("add a dime");
      JButton Q = new JButton("add a quarter");
      JButton sub = new JButton("Submit");
+
+   
      
      JLabel label = new JLabel("Enter amount you want to take out: ");
      JTextField tf = new JTextField(15);
 
+  
      private double totalM = 0, removalA = 0;
      
  	 JLabel screen = new JLabel("Your total is: " + totalM);
@@ -43,7 +46,8 @@ class gui implements ActionListener{
         N.addActionListener(this);
         D.addActionListener(this);
         Q.addActionListener(this);
-        
+        sub.addActionListener(this);
+
     	panel.setLayout(layout);
  
     	panel.add(P);
@@ -51,15 +55,13 @@ class gui implements ActionListener{
     	panel.add(D);
     	panel.add(Q);
         
-       
-    	
         
     	panel2.add(label);
     	panel2.add(tf);
     	panel2.add(sub);
     	panel2.add(screen);
 
-
+    	
     	
     	
     	// make it so they can not remove over the amount inputed
@@ -69,7 +71,7 @@ class gui implements ActionListener{
     	@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			
+
     		if(e.getSource() == P) {
     			
     		
@@ -102,14 +104,15 @@ class gui implements ActionListener{
     			
     			
     		}
-    		else if(e.getSource() == sub) {
+    		if(e.getSource() == sub) {
     			
     			removalA = Double.parseDouble(tf.getText());
-    				
+    			
     			totalM -= removalA;
     			
+
     		}
-    		
+
     		//make it so they can see how many individual coins have been inputted.
 
 			screen.setText("your total is: " + totalM);
