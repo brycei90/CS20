@@ -31,26 +31,27 @@ class Adder implements ActionListener{
      public static JPanel panel = new JPanel();
      public static JPanel panel2 = new JPanel();
      public static JPanel panel3 = new JPanel();
-	
+	 public static JPanel panel4 =  new JPanel();
+     
+     
      //variables
-     int resp, num1, num2, answer, WR = 0, point = 0;
+     int resp = 0, num1, num2, answer, WR = 0, score = 0, point;
      
      //components
 	 JLabel questions = new JLabel(" ");
 	 JButton sub = new JButton("submit.");
 	 JTextField res = new JTextField(5);
      JLabel rW = new JLabel(" ");
-	 JButton start = new JButton("Start?");
 	 JLabel points = new JLabel("You have: " + point + " points!");
-	 
-	 
+	 JLabel done = new JLabel("done? input 999 and submit");
+	
 	 
 	 
 	public Adder(){//constructor
 		
 		//actionListeners
 		sub.addActionListener(this);
-		start.addActionListener(this);
+
 		
 		
 		GridLayout layout = new GridLayout(2,2);
@@ -58,91 +59,128 @@ class Adder implements ActionListener{
 		panel.setLayout(layout);
 		
 		panel2.setLayout(layout);
+		
+		panel3.setLayout(layout);
 	
 		//adding components
 		panel.add(res);
 		panel.add(sub);
-		panel2.add(start);
 		panel2.add(questions);
 		panel3.add(rW);
-		panel3.add(points);
+		panel3.add(done);
+		panel4.add(points);
 		
 		//num generators
 		num1 = (int )(Math.random() * 20 + 1);
 		num2 = (int )(Math.random() * 20 + 1);
+
 		
 		answer = num1 + num2;
 		
-
+		
+		
+		questions.setText("What is the answer to: " + num1 + " + " + num2);
 		
 	}
 	
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-	
-		if(e.getSource() == start) {
-			
-			questions.setText("What is the answer to: " + num1 + " + " + num2);
 		
-	
-		}else if((num1 + num2) == resp) {//first try
-				
+		if(e.getSource() == sub) {
+		
 			resp = Integer.parseInt(res.getText());
+			
+		}if((num1 + num2) != resp){// if answer is wrong the tracker goes up 1
+				
+				rW.setText("Wrong answer!");
+
+				WR += 1;//each time they answer wrong, WR is to track that
+				
+			
+		}if(((e.getSource() == sub)&&(num1 + num2) == resp)&&(WR == 0)) {//first try
+				
 			
 				rW.setText("correct!");
 				
-				questions.setText(num1 + " + " + num2);
+				num1 = (int )(Math.random() * 20 + 1);
+				num2 = (int )(Math.random() * 20 + 1);
 				
 				
-			
-				if(WR == 0) {
 					
-					point = 5;
-					
-				}
-					
+					point += 5;
+				
+					//points.setText("You have: " + point + " points!");
+				
+				rW.setText("correct! + 5 points!");
+				
+				questions.setText(num1 + " + " + num2);	
+				
 	
-		}else if(((num1 + num2) == resp)&&(WR == -1)) {//second try
+		}if(((e.getSource() == sub)&&((num1 + num2) == resp))&&(WR == 1)) {//second try
 					
-					rW.setText("correct!");
+					
+					
+					num1 = (int )(Math.random() * 20 + 1);
+					num2 = (int )(Math.random() * 20 + 1);
+					
+					
+						
+						point += 3;
+						
+						//points.setText("You have: " + point + " points!");
+					
+					rW.setText("correct! + 3 points!");
 					
 					questions.setText(num1 + " + " + num2);
 					
-					point = 3;
-					
-		}else if(((num1 + num2) == resp)&&(WR == -2)) {//third try
-				
-				rW.setText("correct!");
-				
-				questions.setText(num1 + " + " + num2);
-				
-				point = 1;
-					
-			
-				
-		}else if((e.getSource() == sub&&(num1 + num2) != resp)){
-			
-			rW.setText("Wrong answer! " + answer);
+					WR = 0;
 
-			WR += -1;//each time they answer wrong, WR is to track that
-
-			System.out.println(WR);
+					
+		}if(((e.getSource() == sub)&&((num1 + num2) == resp)&&(WR == 2))) {//third try
+				
+			rW.setText("correct!");
 			
-		}else if(WR == -3){
+			num1 = (int )(Math.random() * 20 + 1);
+			num2 = (int )(Math.random() * 20 + 1);
 			
-				rW.setText("You tried three times! 0 points awarded!");
 			
+				
+				point += 1;
+				
+				//points.setText("You have: " + point + " points!");
+			
+			
+			rW.setText("correct! + 1 points!");
+			
+			questions.setText(num1 + " + " + num2);
+					
+			WR = 0;
+				
+		}if(WR == 3){
+			
+				rW.setText("You tried three times! 0 points awarded! You have: " + point + " points!");
+				
 				WR = 0;
 				
 				point += 0;
 				
-		}else if(resp == 999) {
+				num1 = (int )(Math.random() * 20 + 1);
+				num2 = (int )(Math.random() * 20 + 1);
+				
+				questions.setText(num1 + " + " + num2);
+				
+		}if(resp == 999) {
 				
 				//outputs score
-				
-		}
+			questions.setText(" ");
 			
+			rW.setText("Thanks for playing!");
+				
+			points.setText("your final points is: " + point);
+		}
+		
+		points.setText("You have: " + point + " points!");
 			
 		}
 		
@@ -157,7 +195,8 @@ class Adder implements ActionListener{
         frame.setSize(400, 400);
         frame.getContentPane().add(BorderLayout.EAST, panel);
         frame.getContentPane().add(BorderLayout.WEST, panel2);
-        frame.getContentPane().add(BorderLayout.CENTER, panel3);
+        frame.getContentPane().add(BorderLayout.SOUTH, panel3);
+        frame.getContentPane().add(BorderLayout.CENTER, panel4);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 		

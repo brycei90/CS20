@@ -64,7 +64,7 @@ class gui implements ActionListener{
     	
     	
     	
-    	// make it so they can not remove over the amount inputed
+ 
 
        }
   
