@@ -157,7 +157,7 @@ class Adder implements ActionListener{
 					
 			WR = 0;
 				
-		}if(WR == 3){
+		}if(WR == 3){//if they guessed wrong 3 times in a row
 			
 				rW.setText("You tried three times! 0 points awarded! You have: " + point + " points!");
 				
@@ -170,7 +170,7 @@ class Adder implements ActionListener{
 				
 				questions.setText(num1 + " + " + num2);
 				
-		}if(resp == 999) {
+		}if(resp == 999) {//if they would like to stop the game!
 				
 				//outputs score
 			questions.setText(" ");
