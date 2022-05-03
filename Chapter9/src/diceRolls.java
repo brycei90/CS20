@@ -2,7 +2,6 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -33,13 +32,13 @@ public class diceRolls implements ActionListener{
     JButton sub = new JButton("Submit.");
     JLabel output = new JLabel(" ");
     
-	int numRolls, outcome;
+	int numRolls, outcome, roll, i;
 	int[] outcomes = new int[13];
     
 	public diceRolls()
 	{
 		
-		GridLayout layout = new GridLayout(3,2);
+		GridLayout layout = new GridLayout(15,15);
 		panel.setLayout(layout);
 		panel.add(rolls);
 		panel.add(input);
@@ -58,13 +57,13 @@ public class diceRolls implements ActionListener{
 					
 					numRolls = Integer.parseInt(rolls.getText());
 					
-					for(int roll = 0; roll < numRolls; roll++)
+					for(roll = 0; roll < numRolls; roll++)
 					{
 						outcome = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
 						outcomes[outcome] += 1;
 								
 					}
-					for(int i = 2; i <= 12; i++)
+					for(i = 2; i <= 12; i++)
 					{
 						System.out.println(outcomes[i]);
 						output.setText(output.getText() + "\n" + i + ": " + outcomes[i]);
