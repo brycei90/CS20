@@ -32,41 +32,48 @@ public class diceRolls implements ActionListener{
     JButton sub = new JButton("Submit.");
     JLabel output = new JLabel(" ");
     
-	int numRolls, outcome, roll, i;
+	int numRolls = 0, di1, di2, di3, outcome, roll, i;
 	int[] outcomes = new int[13];
-    
+   
+	
 	public diceRolls()
 	{
 		
-		GridLayout layout = new GridLayout(15,15);
+		GridLayout layout = new GridLayout(10,10);
 		panel.setLayout(layout);
 		panel.add(rolls);
 		panel.add(input);
 		panel.add(sub);
-		panel.add(output);
+		panel2.add(output);
 		
 		sub.addActionListener(this);
 		
 		
 		
-	}
 	
+	}
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(e.getSource() == sub) {
-					
+				
+				
+				if(e.getSource() == sub) {//action listener is working + the button works
 					numRolls = Integer.parseInt(rolls.getText());
+					
+					output.setText(" " + numRolls);
 					
 					for(roll = 0; roll < numRolls; roll++)
 					{
-						outcome = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
+						di1 = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
+						di2 = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
+						di3 = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
 						outcomes[outcome] += 1;
 								
 					}
 					for(i = 2; i <= 12; i++)
 					{
-						System.out.println(outcomes[i]);
+						System.out.println(outcomes[outcome]);
 						output.setText(output.getText() + "\n" + i + ": " + outcomes[i]);
+					
 					}
 					
 				}
@@ -79,7 +86,7 @@ public class diceRolls implements ActionListener{
 		diceRolls dR = new diceRolls();
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 500);
+        frame.setSize(300, 200);
         frame.getContentPane().add(BorderLayout.EAST, panel);
         frame.getContentPane().add(BorderLayout.WEST, panel2);
         frame.setVisible(true);
