@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 /*
 
-Program:.java          Last Date of this Revision: April 28, 2022
+Program:.java          Last Date of this Revision: May 4, 2022
  
 Purpose: counts the frequency of dice roll outcomes. a roll is simulated by generating two random numbers between 1 and 6. the outcome of each roll is then used to increment the counter 
 in the element at the index corresponding to the outcome. Now modify the program so it rolls 3 dices.
@@ -28,6 +28,7 @@ public class diceRolls implements ActionListener{
     public static JPanel panel2 = new JPanel();
 	
     JTextField input = new JTextField(10);
+    
     JLabel rolls = new JLabel("Input number of rolls");
     JButton sub = new JButton("Submit.");
     JLabel output = new JLabel(" ");
@@ -57,23 +58,22 @@ public class diceRolls implements ActionListener{
 				
 				
 				if(e.getSource() == sub) {//action listener is working + the button works
-					numRolls = Integer.parseInt(rolls.getText());
-					
-					output.setText(" " + numRolls);
+					numRolls = Integer.parseInt(input.getText());//user input gets converted to int
 					
 					for(roll = 0; roll < numRolls; roll++)
 					{
 						di1 = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
 						di2 = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
 						di3 = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
+						outcome = di1 + di2 + di3;
 						outcomes[outcome] += 1;
-								
+								output.setText( " " + outcomes[outcome]);
 					}
 					for(i = 2; i <= 12; i++)
 					{
 						System.out.println(outcomes[outcome]);
 						output.setText(output.getText() + "\n" + i + ": " + outcomes[i]);
-					
+						//the i is the index of the element and outcomes[i] is the number associated with the index
 					}
 					
 				}
