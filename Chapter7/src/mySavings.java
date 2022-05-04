@@ -28,12 +28,12 @@ class gui implements ActionListener{
      JButton Q = new JButton("add a quarter");
      JButton sub = new JButton("Submit");
 
-   
+  
      
      JLabel label = new JLabel("Enter amount you want to take out: ");
      JTextField tf = new JTextField(15);
 
-  
+ 
      private double totalM = 0, removalA = 0;
      
  	 JLabel screen = new JLabel("Your total is: " + totalM);
@@ -62,7 +62,7 @@ class gui implements ActionListener{
     	panel2.add(screen);
 
     	
-    	
+    
     	
  
 
