@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /*
-
+//
 Program:.java          Last Date of this Revision: April 28, 2022
  
 Purpose: stores the square of an elements index in an integer array of 5 elements for example, the third element, which has index 2, should store 4. the application should then display

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-//encode a message
+//encode a message//
 public class coder {
 
 	public static void main(String[] args) 

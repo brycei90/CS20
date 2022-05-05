@@ -1,4 +1,4 @@
-import java.lang.Math;//import this if math.random is giving you a hard time.
+import java.lang.Math;//import this if math.random is giving you a hard time.//
 public class RandomStats {
 
 	public static void main(String[] args) 
