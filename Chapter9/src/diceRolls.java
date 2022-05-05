@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -22,7 +23,7 @@ Course: Computer Programming 20
  
 */
 public class diceRolls implements ActionListener{
-
+	//creating components
 	public static JFrame frame = new JFrame("Dice Rolls!");
     public static JPanel panel = new JPanel();
     public static JPanel panel2 = new JPanel();
@@ -31,21 +32,29 @@ public class diceRolls implements ActionListener{
     
     JLabel rolls = new JLabel("Input number of rolls");
     JButton sub = new JButton("Submit.");
-    JLabel output = new JLabel(" ");
+    JTextField output = new JTextField(" ");
+    JList list = new JList();
     
+    //declaring variables
 	int numRolls = 0, di1, di2, di3, outcome, roll, i;
-	int[] outcomes = new int[13];
+	int[] outcomes = new int[19];
    
 	
-	public diceRolls()
+	public diceRolls()//constructor
 	{
-		
+		//layouts that I am using
 		GridLayout layout = new GridLayout(10,10);
+		GridLayout layout2 = new GridLayout(2,2);
 		panel.setLayout(layout);
+		panel2.setLayout(layout2);
+		
+		//adding components to the panel
 		panel.add(rolls);
 		panel.add(input);
 		panel.add(sub);
 		panel2.add(output);
+		panel2.add(list);
+		
 		
 		sub.addActionListener(this);
 		
@@ -56,23 +65,21 @@ public class diceRolls implements ActionListener{
 			public void actionPerformed(ActionEvent e) 
 			{
 				
-				
+				//understanding the code: the index (i) is what is rolled for ex. 15, and the outcomes, is how many times that 15 is rolled.
 				if(e.getSource() == sub) {//action listener is working + the button works
 					numRolls = Integer.parseInt(input.getText());//user input gets converted to int
 					
 					for(roll = 0; roll < numRolls; roll++)
-					{
-						di1 = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
-						di2 = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
-						di3 = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
-						outcome = di1 + di2 + di3;
+					{   //random number generator acting as a dice roll
+						outcome = (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1) + (int)(6 * Math.random() + 1);
 						outcomes[outcome] += 1;
-								output.setText( " " + outcomes[outcome]);
+						
 					}
-					for(i = 2; i <= 12; i++)
-					{
-						System.out.println(outcomes[outcome]);
-						output.setText(output.getText() + "\n" + i + ": " + outcomes[i]);
+					for(i = 3; i <= 18; i++)
+					{ //displays information to user.
+						//list = new Jlist(outcomes[i]);
+						System.out.print("\n" + i + ": " + outcomes[i]);
+						output.setText(output.getText() + i + ": " + outcomes[i] + " ");
 						//the i is the index of the element and outcomes[i] is the number associated with the index
 					}
 					
@@ -84,11 +91,10 @@ public class diceRolls implements ActionListener{
 	public static void main(String[] args) 
 	{
 		diceRolls dR = new diceRolls();
-		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200);
+        frame.setSize(800, 200);
         frame.getContentPane().add(BorderLayout.EAST, panel);
-        frame.getContentPane().add(BorderLayout.WEST, panel2);
+        frame.add(panel2);
         frame.setVisible(true);
 	}
 
