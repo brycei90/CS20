@@ -15,7 +15,7 @@ public class diceExample {
 		
 		for(int roll = 0; roll < numRolls; roll++) 
 		{	
-			outcome = (int)(6*Math.random() + 1);
+			outcome = (int)(6*Math.random() + 1) + (int)(6*Math.random() + 1);
 			outcomes[outcome] += 1;
 		}
 		for(int i = 2; i <= 12; i++) 
