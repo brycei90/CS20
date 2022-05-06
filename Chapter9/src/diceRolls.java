@@ -33,7 +33,6 @@ public class diceRolls implements ActionListener{
     JLabel rolls = new JLabel("Input number of rolls");
     JButton sub = new JButton("Submit.");
     JTextField output = new JTextField(" ");
-    JList list = new JList();
     
     //declaring variables
 	int numRolls = 0, di1, di2, di3, outcome, roll, i;
@@ -53,9 +52,8 @@ public class diceRolls implements ActionListener{
 		panel.add(input);
 		panel.add(sub);
 		panel2.add(output);
-		panel2.add(list);
 		
-		
+		//actionListener(s)
 		sub.addActionListener(this);
 		
 		
@@ -77,9 +75,8 @@ public class diceRolls implements ActionListener{
 					}
 					for(i = 3; i <= 18; i++)
 					{ //displays information to user.
-						//list = new Jlist(outcomes[i]);
 						System.out.print("\n" + i + ": " + outcomes[i]);
-						output.setText(output.getText() + i + ": " + outcomes[i] + " ");
+						output.setText(output.getText() + i + ": " + outcomes[i] + ", ");
 						//the i is the index of the element and outcomes[i] is the number associated with the index
 					}
 					
