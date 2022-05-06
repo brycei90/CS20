@@ -75,7 +75,6 @@ public class diceRolls implements ActionListener{
 					}
 					for(i = 3; i <= 18; i++)
 					{ //displays information to user.
-						System.out.print("\n" + i + ": " + outcomes[i]);
 						output.setText(output.getText() + i + ": " + outcomes[i] + ", ");
 						//the i is the index of the element and outcomes[i] is the number associated with the index
 					}
