@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 /*
 
-Program:.java          Last Date of this Revision: May 4, 2022
+Program:.java          Last Date of this Revision: May 6, 2022
  
 Purpose: counts the frequency of dice roll outcomes. a roll is simulated by generating two random numbers between 1 and 6. the outcome of each roll is then used to increment the counter 
 in the element at the index corresponding to the outcome. Now modify the program so it rolls 3 dices.
