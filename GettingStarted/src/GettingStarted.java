@@ -33,21 +33,26 @@ public class GettingStarted {
         //Use your Phidgets 
         while(true){
 
-            if(redButton.getState()){
-                redLED.setState(true);
-                P += 1;
-            } else {
-                redLED.setState(false);
-            }
-
-            if(greenButton.getState()){
+         /*   if(redButton.getState()){
                 greenLED.setState(true);
                 P += 1;
             } else {
-                greenLED.setState(false);       
+                greenLED.setState(false);
+            }
+
+            if(greenButton.getState()){
+                redLED.setState(true);
+                P += 1;
+            } else {
+                redLED.setState(false);       
             }
             System.out.println(" " + P);
-            Thread.sleep(150);
+            Thread.sleep(150);*/
+        if(redButton.getState() == true)
+        {
+        	System.out.println("Button State: " + redButton.getState());
+        	Thread.sleep(150);
+        }
         }
     }
 }
