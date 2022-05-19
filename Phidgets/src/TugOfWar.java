@@ -4,7 +4,9 @@ import com.phidget22.DigitalOutput;
 public class TugOfWar {
 	    public static void main(String[] args) throws Exception
 	    {
-	    	int PG = 0, PR = 0;
+	    	//variables
+	    	int PG = 0, PR = 0, PWR = 0, PWG = 0;
+	    	boolean STATE = false;
 	    	
 	    	//create
 	        DigitalInput redButton = new DigitalInput();
@@ -45,15 +47,51 @@ public class TugOfWar {
 	            }else {
 	                greenLED.setState(false);       
 	            }
-	            if((PR >= 20)&&(PR > PG)) 
+	            PWR = PR - PG;
+	            PWG = PG - PR;
+	        	if((redButton.getState() != STATE)&&(greenButton.getState() != STATE))
+	        	{
+	        		STATE = redButton.getState();
+	        		STATE = greenButton.getState();
+	        		System.out.println("green: " + PWG + " red: " + PWR);
+	        	}
+	            if(PWR >= 10)//red team clicked faster 
 	            {
-	            	System.out.println("Red wins");
+	            	PWG = 0;
+	            	greenLED.setState(false);
+	                redLED.setState(true);
+	                Thread.sleep(10);
+	                redLED.setState(false);
+	                Thread.sleep(10);
+	                redLED.setState(true);
+	                Thread.sleep(100);
+	                redLED.setState(false);
+	                Thread.sleep(100);
+	                redLED.setState(true);
+	                Thread.sleep(100);
+	                redLED.setState(false);
+	                Thread.sleep(100);
+	                redLED.setState(true);
+	                Thread.sleep(100);
+	                redLED.setState(false);
+	                Thread.sleep(100);
+	                redLED.setState(true);
+	                Thread.sleep(100);
+	                redLED.setState(false);
+	                Thread.sleep(100);
+	                return;
 	            }
-	            else if((PG >= 20)&&(PG > PR))
+	            else if(PWG >= 10)//green team clicked faster
 	            {
-	            	System.out.println("Green wins");
+	            	PWR = 0;
+	            	redLED.setState(false);
+	                greenLED.setState(true);
+	                Thread.sleep(500);
+	                greenLED.setState(false);
+	                Thread.sleep(500);
 	            }
-	            Thread.sleep(150);
+	        	
+	            Thread.sleep(150);	        		
 	        }
 	    }
 }
