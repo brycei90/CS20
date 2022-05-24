@@ -49,7 +49,8 @@ public class TugOfWar {
 	            }
 	            PWR = PR - PG;
 	            PWG = PG - PR;
-	        	if((redButton.getState() != STATE)&&(greenButton.getState() != STATE))
+	            
+	        	if((redButton.getState() != STATE)||(greenButton.getState() != STATE))
 	        	{
 	        		STATE = redButton.getState();
 	        		STATE = greenButton.getState();
@@ -59,39 +60,33 @@ public class TugOfWar {
 	            {
 	            	PWG = 0;
 	            	greenLED.setState(false);
-	                redLED.setState(true);
-	                Thread.sleep(10);
-	                redLED.setState(false);
-	                Thread.sleep(10);
-	                redLED.setState(true);
-	                Thread.sleep(100);
-	                redLED.setState(false);
-	                Thread.sleep(100);
-	                redLED.setState(true);
-	                Thread.sleep(100);
-	                redLED.setState(false);
-	                Thread.sleep(100);
-	                redLED.setState(true);
-	                Thread.sleep(100);
-	                redLED.setState(false);
-	                Thread.sleep(100);
-	                redLED.setState(true);
-	                Thread.sleep(100);
-	                redLED.setState(false);
-	                Thread.sleep(100);
-	                return;
+	            	for(int i = 0; i < 10; i++)
+	            	{
+		            	redLED.setState(true);
+		                Thread.sleep(100);
+		                redLED.setState(false);
+		                Thread.sleep(100);
+		                
+	            	}
+	            	break;
 	            }
 	            else if(PWG >= 10)//green team clicked faster
 	            {
 	            	PWR = 0;
 	            	redLED.setState(false);
-	                greenLED.setState(true);
-	                Thread.sleep(500);
-	                greenLED.setState(false);
-	                Thread.sleep(500);
+	            	for(int i = 0; i < 10; i++)
+	            	{
+		            	greenLED.setState(true);
+		                Thread.sleep(100);
+		                greenLED.setState(false);
+		                Thread.sleep(100);
+		                
+	            	}
+	            	break;
+
 	            }
 	        	
-	            Thread.sleep(150);	        		
+	            Thread.sleep(120);	        		
 	        }
 	    }
 }
