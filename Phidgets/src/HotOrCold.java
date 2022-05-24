@@ -15,7 +15,7 @@ public class HotOrCold {
         //address
         redLED.setHubPort(0);
         redLED.setIsHubPortDevice(true);
-        greenLED.setHubPort(0);
+        greenLED.setHubPort(1);
         greenLED.setIsHubPortDevice(true);
         
         //Open 
@@ -32,13 +32,14 @@ public class HotOrCold {
         	{
         		greenLED.setState(true);
         	}
-        	else
+        	else if((T > 24)||(T < 20))
         	{
         		redLED.setState(true);
         	}
-            System.out.println("Temperature: " + temperatureSensor.getTemperature() + " °C" );
+            System.out.println("Temperature: " + T + " °C" );
             Thread.sleep(150);
         }
+
 	}
 
 }
