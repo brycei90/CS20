@@ -1,3 +1,15 @@
+/*
+
+Program:.java          Last Date of this Revision: May 31, 2022
+ 
+Purpose: reads the temperature and humidity of the room, with modifications the application will output certain responses dependant on the humidity or temperature
+
+Author: Bryce Ilcan
+School: CHHS
+Course: Computer Programming 20
+ 
+ 
+*/
 import com.phidget22.*;
 public class tempANDhumidReader {
 

@@ -1,3 +1,15 @@
+/*
+
+Program:.java          Last Date of this Revision: May 23, 2022
+ 
+Purpose: reads the temperature of the room
+
+Author: Bryce Ilcan
+School: CHHS
+Course: Computer Programming 20
+ 
+ 
+*/
 import com.phidget22.*;
 
 public class TempReader //°F = (°C × 1.8) + 32

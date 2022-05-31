@@ -1,3 +1,15 @@
+/*
+
+Program:.java          Last Date of this Revision: May 31, 2022
+ 
+Purpose: tug of war application that who ever clicks faster will win and the winners button will flash.
+
+Author: Bryce Ilcan
+School: CHHS
+Course: Computer Programming 20
+ 
+ 
+*/
 import com.phidget22.DigitalInput;
 import com.phidget22.DigitalOutput;
 
