@@ -15,6 +15,9 @@ Course: Computer Programming 20
 import com.phidget22.DigitalInput;
 import com.phidget22.DigitalOutput;
 import com.phidget22.TemperatureSensor;
+
+import java.util.Scanner;
+
 import com.phidget22.*;
 import com.phidget22.*;
 
@@ -24,8 +27,7 @@ public class thermostat {
 	{
 	
 		//variables
-    	int i, T, temp = 21;
-    	double TI;
+        int money = 0;
     	boolean STATE = false;
     	
 
@@ -54,43 +56,26 @@ public class thermostat {
         greenLED.open(1000);
         temperatureSensor.open(1000);
         
+        Scanner S = new Scanner(System.in);
+        
+        System.out.println("how to play: click the green or red button to add to your money amount, and buy upgrades! enter 'S' to open the shop!");
+        
+        String shop = S.next();
+
         //Use your Phidgets 
         while(true){
-        	TI = temperatureSensor.getTemperature();
-        	T = (int)TI;
         	
         	if(redButton.getState() == true)
         	{
-        		temp -= 1;
-        		STATE = redButton.getState();
-        		System.out.println("set temperature is: " + temp);
-            	System.out.println("current temperature is: " + temperatureSensor.getTemperature());
+        		money += 1;
         	}
         	if(greenButton.getState() == true)
         	{
-        		temp += 1;
-        		STATE = greenButton.getState();	
-        		System.out.println("set temperature is: " + temp);
-            	System.out.println("current temperature is: " + temperatureSensor.getTemperature());
-        	}
-        	if((temp == T + 2)||(temp == T + 1)||(temp == T))
-        	{
-        		greenLED.setState(true);
-        		redLED.setState(false);
-        	}
-        	else if((temp == T - 2)||(temp == T - 1))
-        	{
-        		greenLED.setState(true);
-        		redLED.setState(false);
-        	}
-        	else 
-        	{
-        		greenLED.setState(false);
-        		redLED.setState(true);
+        		money += 1;	
         	}
         	Thread.sleep(130);
             }
-        
+
         
 		}
 		
