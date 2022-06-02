@@ -24,11 +24,11 @@ public class TempReader //°F = (°C × 1.8) + 32
         //Open 
         temperatureSensor.open(1000);
 
-       // F = (temperatureSensor.getTemperature() * 1.8) + 32;
+        F = (temperatureSensor.getTemperature() * 1.8) + 32;
         
         //Use your Phidgets 
         while (true) {
-            System.out.println("Temperature: " + temperatureSensor.getTemperature() + " °C" );
+            System.out.println("Temperature: " + F + " °F" );
             Thread.sleep(150);
         }
 	}

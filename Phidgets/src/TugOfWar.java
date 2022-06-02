@@ -19,7 +19,7 @@ public class TugOfWar {
 	    	//variables
 	    	int PG = 0, PR = 0, PWR = 0, PWG = 0;
 	    	boolean STATE = false;
-	    	
+	    	   
 	    	//create
 	        DigitalInput redButton = new DigitalInput();
 	        DigitalOutput redLED = new DigitalOutput();
@@ -72,6 +72,7 @@ public class TugOfWar {
 	            {
 	            	PWG = 0;
 	            	greenLED.setState(false);
+	            	System.out.println("red team wins!");
 	            	for(int i = 0; i < 10; i++)
 	            	{
 		            	redLED.setState(true);
@@ -86,6 +87,7 @@ public class TugOfWar {
 	            {
 	            	PWR = 0;
 	            	redLED.setState(false);
+	            	System.out.println("green team wins!");
 	            	for(int i = 0; i < 10; i++)
 	            	{
 		            	greenLED.setState(true);
