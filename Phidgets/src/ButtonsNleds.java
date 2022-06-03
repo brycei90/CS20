@@ -1,5 +1,16 @@
 import com.phidget22.*;
+/*
 
+Program:.java          Last Date of this Revision: May 31, 2022
+ 
+Purpose: when a button is clicked an LED is lit
+
+Author: Bryce Ilcan
+School: CHHS
+Course: Computer Programming 20
+ 
+ 
+*/
 public class ButtonsNleds {
 
 	static int tracker = 0;

@@ -27,7 +27,8 @@ public class thermostat {
 	{
 	
 		//variables
-        int money = 0;
+        int setTemp = 21, temp;
+        double realTemp;
     	boolean STATE = false;
     	
 
@@ -56,22 +57,35 @@ public class thermostat {
         greenLED.open(1000);
         temperatureSensor.open(1000);
         
-        Scanner S = new Scanner(System.in);
-        
-        System.out.println("how to play: click the green or red button to add to your money amount, and buy upgrades! enter 'S' to open the shop!");
-        
-        String shop = S.next();
 
         //Use your Phidgets 
         while(true){
+        	realTemp = temperatureSensor.getTemperature();
         	
-        	if(redButton.getState() == true)
-        	{
-        		money += 1;
-        	}
+        	
         	if(greenButton.getState() == true)
         	{
-        		money += 1;	
+        		setTemp += 1;
+        		System.out.println("Set temp: " + setTemp + " real temp: " + realTemp);
+        	}else if(redButton.getState() == true)
+        	{
+        		setTemp -= 1;
+        		System.out.println("Set temp: " + setTemp + " real temp: " + realTemp);
+        	}
+        	
+        	temp = (int)realTemp;
+        	if((setTemp == temp + 2)||(setTemp == temp + 1)||(setTemp == temp))
+        	{
+        		greenLED.setState(true);
+        		redLED.setState(false);
+        	}else if((setTemp == temp - 2)||(setTemp == temp - 1))
+        	{
+        		greenLED.setState(true);
+        		redLED.setState(false);
+        	}else
+        	{
+        		redLED.setState(true);
+        		greenLED.setState(false);
         	}
         	Thread.sleep(130);
             }

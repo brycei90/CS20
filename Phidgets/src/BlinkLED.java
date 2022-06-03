@@ -1,3 +1,15 @@
+/*
+
+Program:.java          Last Date of this Revision: May 31, 2022
+ 
+Purpose: blinks the LED
+
+Author: Bryce Ilcan
+School: CHHS
+Course: Computer Programming 20
+ 
+ 
+*/
 import com.phidget22.DigitalOutput;
 
 public class BlinkLED {

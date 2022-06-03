@@ -1,5 +1,16 @@
 import com.phidget22.*;
+/*
 
+Program:.java          Last Date of this Revision: May 31, 2022
+ 
+Purpose: tracks button state
+
+Author: Bryce Ilcan
+School: CHHS
+Course: Computer Programming 20
+ 
+ 
+*/
 public class ButtonEvents {
 	//Handle Exception               
 	public static void main(String[] args) throws Exception
