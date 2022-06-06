@@ -26,23 +26,27 @@ Course: Computer Programming 20
 */
 public class MoneyGame implements ActionListener{
 
-	static int money = 0, click = 1, cost = 10;
+	static int money = 0, click = 1, cost = 10, cost2 = 50;
 	static String shop;
 	boolean STATE = false;
 	
 	public static JFrame frame = new JFrame("reverse.");
     public static JPanel panel = new JPanel();
-    JLabel titleIO = new JLabel("costs: " + cost);
     JButton increaseOne = new JButton("increase click by 1");
-    
+    JButton increaseFive = new JButton("increase click by 5");
+    JLabel i1 = new JLabel("cost for increase by 1: " + cost);
+    JLabel i2 = new JLabel("cost for increase by 1: " + cost2);
+    static JLabel error = new JLabel("");
     
 	public MoneyGame()
 	{
 		increaseOne.addActionListener(this);
-		
-		panel.add(titleIO);
+		increaseFive.addActionListener(this);
 		panel.add(increaseOne);
-	
+		panel.add(increaseFive);
+		panel.add(i1);
+		panel.add(i2);
+		panel.add(error);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) 
@@ -52,7 +56,16 @@ public class MoneyGame implements ActionListener{
 			cost += 10;
 			click += 1;
 			money -= cost;
-			titleIO.setText("costs: " + cost);
+			i1.setText("cost for increase by 1: " + cost);
+			
+		}
+		if(e.getSource() == increaseFive)
+		{
+			cost2 += 100;
+			click = click + 5;
+			money -= cost2;
+			i2.setText("cost for increase by 1: " + cost2);
+			
 		}
 	}
 	public static void main(String[] args) throws Exception
@@ -60,7 +73,7 @@ public class MoneyGame implements ActionListener{
 		
 		//variables
     	
-    	
+
 
     	
     	//create
@@ -105,6 +118,7 @@ public class MoneyGame implements ActionListener{
         	if(redButton.getState() == true)
         	{
         		money += click;
+        		System.out.println(" " +  money);
         	}
         	if(greenButton.getState() == true)
         	{
@@ -113,6 +127,8 @@ public class MoneyGame implements ActionListener{
         	}
         	Thread.sleep(130);
             }
+
+
 		
 		
 
