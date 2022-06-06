@@ -21,7 +21,7 @@ click gives you more money!
 Author: Bryce Ilcan
 School: CHHS
 Course: Computer Programming 20
- 
+ //
  
 */
 public class MoneyGame implements ActionListener{
